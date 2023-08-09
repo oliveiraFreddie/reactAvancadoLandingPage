@@ -1,4 +1,4 @@
 import { GraphQLClient } from 'graphql-request'
 
-const client = new GraphQLClient('https://localhost:1337/graphql')
+const client = new GraphQLClient(process.env.GRAPHQL_HOST)
 export default client
