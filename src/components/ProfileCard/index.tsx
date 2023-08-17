@@ -14,14 +14,15 @@ const icons = {
 }
 
 const ProfileCard: React.FC<Author> = ({
-  name,
-  role,
-  photo,
-  socialLinks,
-  description
+  data: {
+    attributes: { name, role, photo, socialLinks, description }
+  }
 }) => (
   <S.Card key={name}>
-    <S.Image src={getImageUrl(photo.url)} alt={photo.alternativeText} />
+    <S.Image
+      src={getImageUrl(photo.data.attributes.url)}
+      alt={photo.data.attributes.alternativeText}
+    />
     <S.Name>{name}</S.Name>
     <S.Role>{role}</S.Role>
     <S.SocialLinks>

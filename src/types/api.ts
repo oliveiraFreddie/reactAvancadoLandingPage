@@ -1,7 +1,11 @@
 export type TechIcon = {
   title: string
   icon: {
-    url: string
+    data: {
+      attributes: {
+        url: string
+      }
+    }
   }
 }
 
@@ -19,13 +23,21 @@ export type HeaderProps = {
     label: string
     url: string
   }
-  image: Image
+  image: {
+    data: {
+      attributes: Image
+    }
+  }
 }
 
 export type SectionAboutProjectProps = {
   title: string
   description: string
-  image: Image
+  image: {
+    data: {
+      attributes: Image
+    }
+  }
 }
 
 export type SectionTechProps = {
@@ -67,17 +79,25 @@ export type PricingBoxProps = {
   }
 }
 
+export type Author = {
+  data: {
+    attributes: {
+      photo: {
+        data: {
+          attributes: Image
+        }
+      }
+      name: string
+      role: string
+      socialLinks: SocialLink[]
+      description: string
+    }
+  }
+}
+
 export type SocialLink = {
   title: string
   url: string
-}
-
-export type Author = {
-  photo: Image
-  name: string
-  role: string
-  socialLinks: SocialLink[]
-  description: string
 }
 
 export type SectionAboutUsProps = {
@@ -89,7 +109,11 @@ export type Review = {
   name: string
   text: string
   photo: {
-    url: string
+    data: {
+      attributes: {
+        url: string
+      }
+    }
   }
 }
 
