@@ -14,7 +14,11 @@ export type Image = {
   url: string
 }
 
-export type LogoProps = Image
+export type LogoProps = {
+  data: {
+    attributes: Image
+  }
+}
 
 export type HeaderProps = {
   title: string
@@ -79,30 +83,32 @@ export type PricingBoxProps = {
   }
 }
 
-export type Author = {
-  data: {
-    attributes: {
-      photo: {
-        data: {
-          attributes: Image
-        }
-      }
-      name: string
-      role: string
-      socialLinks: SocialLink[]
-      description: string
-    }
-  }
-}
-
 export type SocialLink = {
   title: string
   url: string
 }
 
+export type Author = {
+  data: [
+    {
+      attributes: {
+        photo: {
+          data: {
+            attributes: Image
+          }
+        }
+        name: string
+        role: string
+        socialLinks: SocialLink[]
+        description: string
+      }
+    }
+  ]
+}
+
 export type SectionAboutUsProps = {
   title: string
-  authors: Author[]
+  authors: Author
 }
 
 export type Review = {
@@ -133,15 +139,21 @@ export type SectionFaqProps = {
 }
 
 export type LandingPageProps = {
-  logo: LogoProps
-  header: HeaderProps
-  sectionAboutProject: SectionAboutProjectProps
-  sectionTech: SectionTechProps
-  sectionConcepts: SectionConceptsProps
-  sectionModules: SectionModulesProps
-  sectionAgenda: SectionAgendaProps
-  pricingBox: PricingBoxProps
-  sectionAboutUs: SectionAboutUsProps
-  sectionReviews: SectionReviewsProps
-  sectionFaq: SectionFaqProps
+  landingPage: {
+    data: {
+      attributes: {
+        logo: LogoProps
+        header: HeaderProps
+        sectionAboutProject: SectionAboutProjectProps
+        sectionTech: SectionTechProps
+        sectionConcepts: SectionConceptsProps
+        sectionModules: SectionModulesProps
+        sectionAgenda: SectionAgendaProps
+        pricingBox: PricingBoxProps
+        sectionAboutUs: SectionAboutUsProps
+        sectionReviews: SectionReviewsProps
+        sectionFaq: SectionFaqProps
+      }
+    }
+  }
 }

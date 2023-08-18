@@ -1,5 +1,4 @@
 import React from 'react'
-
 import Heading from 'components/Heading'
 import Container from 'components/Container'
 import ProfileCard from 'components/ProfileCard'
@@ -12,10 +11,14 @@ const SectionAboutUs = ({ title, authors }: SectionAboutUsProps) => (
     <Heading reverseColor>{title}</Heading>
 
     <S.Content>
-      {authors.map((profile) => (
+      {authors.data.map((profile) => (
         <ProfileCard
-          key={profile.data.attributes.name}
-          data={profile.data} // Passa o objeto data completo para o componente
+          key={profile.attributes.name}
+          name={profile.attributes.name}
+          role={profile.attributes.role}
+          image={profile.attributes.photo.data.attributes}
+          socialLinks={profile.attributes.socialLinks}
+          description={profile.attributes.description}
         />
       ))}
     </S.Content>
